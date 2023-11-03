@@ -1,0 +1,1 @@
+# another way# __import__('os').system('echo \#pythoniscool')
