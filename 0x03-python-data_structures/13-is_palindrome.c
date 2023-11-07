@@ -31,7 +31,8 @@ int is_palindrome(listint_t **head)
 }
 
 /**
- * evaluate_palindrome - Helper function to determine if a list reads the same backwards.
+ * evaluate_palindrome - Helper
+ * function to determine if a list reads the same backwards.
  *
  * @start: Pointer to the beginning node of the list.
  * @end: Pointer to the end node of the list.
@@ -46,6 +47,6 @@ int evaluate_palindrome(listint_t *start, listint_t *end)
 	if (start->n != end->n)
 		return (0);
 
-	// Move towards the middle of the list, comparing nodes from both ends
+	/*Move towards the middle of the list, comparing nodes from both ends*/
 	return (evaluate_palindrome(start->next, end - 2));
 }
