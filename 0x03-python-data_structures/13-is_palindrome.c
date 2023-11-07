@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
-* is_palindrome - Validates whether a linked list is symmetrical.
-*
-* @head: Double pointer to the start of the list.
-*
-* Return: 1 if the list mirrors itself, 0 otherwise.
-*/
+ * is_palindrome - Validates whether a linked list is symmetrical.
+ *
+ * @head: Double pointer to the start of the list.
+ *
+ * Return: 1 if the list mirrors itself, 0 otherwise.
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t *end;
