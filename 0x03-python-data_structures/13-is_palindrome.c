@@ -31,12 +31,12 @@ int is_palindrome(listint_t **head)
 {
     listint_t *fast = *head, *slow = *head;
     listint_t *second_half, *prev_slow = *head;
-    listint_t *midnode = NULL;  // To handle odd size list
-    int result = 1;  // Assume list is palindrome
+    listint_t *midnode = NULL;  /* To handle odd size list*/
+    int result = 1;  /* Assume list is palindrome*/
 
     if (*head != NULL && (*head)->next != NULL)
     {
-        // Find the middle of the list (slow will point to it)
+        /* Find the middle of the list (slow will point to it)*/
         while (fast != NULL && fast->next != NULL)
         {
             fast = fast->next->next;
@@ -44,30 +44,30 @@ int is_palindrome(listint_t **head)
             slow = slow->next;
         }
 
-        // For odd sized lists, skip the middle element
+        /* For odd sized lists, skip the middle element*/
         if (fast != NULL)
         {
             midnode = slow;
             slow = slow->next;
         }
 
-        // Reverse the second half of the list
+        /* Reverse the second half of the list*/
         second_half = reverse_listint(&slow);
         prev_slow->next = NULL; // Terminate first half
 
-        // Check if the list is palindrome
+        /* Check if the list is palindrome*/
         result = compare_lists(*head, second_half);
 
-        // Reconstruct the original list (reverse the second half back)
+        /* Reconstruct the original list (reverse the second half back)*/
         reverse_listint(&second_half);
 
-        // If there was a mid node (odd size list), add it back
+        /* If there was a mid node (odd size list), add it back*/
         if (midnode != NULL)
         {
             prev_slow->next = midnode;
             midnode->next = second_half;
         }
-        else  // else just join the two halves
+        else  /* else just join the two halves*/
         {
             prev_slow->next = second_half;
         }
@@ -98,9 +98,9 @@ int compare_lists(listint_t *head1, listint_t *head2)
             return 0;
     }
 
-    // If both lists are traversed and no mismatches are found
+    /* If both lists are traversed and no mismatches are found*/
     if (temp1 == NULL && temp2 == NULL)
         return 1;
 
-    return 0; // If one of the lists has not ended, they are not the same
+    return 0; /* If one of the lists has not ended, they are not the same*/
 }
