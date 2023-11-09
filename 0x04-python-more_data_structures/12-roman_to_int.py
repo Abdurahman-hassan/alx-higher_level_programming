@@ -31,13 +31,6 @@ def roman_to_int(roman_string):
 # so we subtract 1 twice from 5 to get 3
 # and we add 3 to the result
 
-# example: roman_string = "IX"
-# the first iteration will add 1 to the result
-# the second iteration will add 10 to the result
-# but we need to subtract 1 twice to get the correct value
-# so we subtract 1 twice from 10 to get 8
-# and we add 8 to the result
-
 # example: roman_string = "XL"
 # the first iteration will add 10 to the result
 # the second iteration will add 50 to the result
