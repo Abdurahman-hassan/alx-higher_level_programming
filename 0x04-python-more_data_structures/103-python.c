@@ -1,48 +1,60 @@
 #include <Python.h>
-#include <object.h>
 #include <listobject.h>
 #include <bytesobject.h>
 
-/* Forward declaration of print_python_bytes */
-void print_python_bytes(PyObject *p);
-
-void print_python_list(PyObject *p)
+/* Function to display information about byte objects in Python */
+void display_python_bytes(PyObject *py_object)
 {
-	PyListObject *list = (PyListObject *)p;
-	PyObject *item;
-	const char *type_name;
+	long bytes_size;
+	char *bytes_content = NULL;
 
-	printf("[*] Python list info\n");
-	/* Directly accessing the ob_size field of the object's var part */
-	printf("[*] Size of the Python List = %zd\n", ((PyVarObject *)p)->ob_size);
-	printf("[*] Allocated = %zd\n", list->allocated);
+	printf("[.] bytes object info\n");
 
-	for (Py_ssize_t i = 0; i < ((PyVarObject *)p)->ob_size; i++) {
-		item = list->ob_item[i];
-		type_name = item->ob_type->tp_name;
-		printf("Element %zd: %s\n", i, type_name);
-		if (PyBytes_Check(item)) {
-			print_python_bytes(item);
-		}
-	}
-}
-
-void print_python_bytes(PyObject *p)
-{
-	if (!PyBytes_Check(p)) {
+	/* Validate that the object is a bytes object */
+	if (!PyBytes_Check(py_object))
+	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
-	PyBytesObject *bytes = (PyBytesObject *)p;
-	printf("[.] bytes object info\n");
-	printf("  size: %zd\n", PyBytes_GET_SIZE(p));
-	printf("  trying string: %s\n", PyBytes_AsString(p));
-	printf("  first %zd bytes:", PyBytes_GET_SIZE(p) < 10 ? PyBytes_GET_SIZE(p) + 1 : 10);
+	/* Retrieve string and its length from the bytes object */
+	PyBytes_AsStringAndSize(py_object, &bytes_content, &bytes_size);
 
-	for (Py_ssize_t i = 0; i < PyBytes_GET_SIZE(p) && i < 10; i++) {
-		printf(" %02x", bytes->ob_sval[i] & 0xff);
+	printf("  size: %ld\n", bytes_size);
+	printf("  trying string: %s\n", bytes_content);
+
+	/* Print up to 10 bytes of the bytes object */
+	printf("  first %ld bytes:", (bytes_size < 10) ? bytes_size + 1 : 10);
+	for (int index = 0; index <= bytes_size && index < 10; ++index)
+	{
+		printf(" %02hhx", bytes_content[index]);
 	}
 	printf("\n");
+}
+
+/* Function to display information about list objects in Python */
+void display_python_list(PyObject *py_object)
+{
+	PyListObject *py_list = (PyListObject *)py_object;
+	long list_size = PyList_Size(py_object);
+
+	printf("[*] Python list info\n");
+	printf("[*] Size of the Python List = %ld\n", list_size);
+	printf("[*] Allocated = %ld\n", py_list->allocated);
+
+	/* Iterate over the list and print details about each element */
+	for (int index = 0; index < list_size; ++index)
+	{
+		PyObject *item = PyList_GET_ITEM(py_list, index);
+		const char *item_type = item->ob_type->tp_name;
+
+		printf("Element %d: %s\n", index, item_type);
+
+		/* If the list element is a bytes object, display its info */
+		if (PyBytes_Check(item))
+		{
+			display_python_bytes(item);
+		}
+	}
 }
 
