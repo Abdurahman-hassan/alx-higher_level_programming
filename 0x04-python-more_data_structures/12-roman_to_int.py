@@ -13,8 +13,10 @@ def roman_to_int(roman_string):
             # roman_values[roman_string[i]] is the value of the current roman numeral
             # roman_values[roman_string[i - 1]] is the value of the previous roman numeral
             # roman_values[roman_string[i]] - 2 * roman_values[roman_string[i - 1]]
-            # is the value of the current roman numeral minus twice the value of the previous roman numeral
-            # this is because the previous roman numeral was already added to the result in the previous iteration
+            # is the value of the current roman numeral
+            # minus twice the value of the previous roman numeral
+            # this is because the previous roman numeral
+            # was already added to the result in the previous iteration
             # so we need to subtract it twice to get the correct value
 
             # example: roman_string = "IV"
