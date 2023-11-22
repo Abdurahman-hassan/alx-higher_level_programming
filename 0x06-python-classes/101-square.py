@@ -18,7 +18,8 @@ class Square:
         else:
             return "\n" * self.__position[1] + \
                 (" " * self.__position[0] + "#" * self.__size + "\n") * \
-                (self.__size - 1) + " " * self.__position[0] + "#" * self.__size
+                (self.__size - 1) + " " * self.__position[0] + "#" * \
+                self.__size
 
     @property
     def size(self):
@@ -60,5 +61,10 @@ class Square:
             print("")
         else:
             print("\n" * self.__position[1], end="")
-            print((" " * self.__position[0] + "#" * self.__size + "\n") * \
-                  (self.__size - 1) + " " * self.__position[0] + "#" * self.__size)
+            print(
+                (
+                    " " * self.__position[0] + "#" * self.__size + "\n"
+                ) * (self.__size - 1)
+                + " " * self.__position[0]
+                + "#" * self.__size
+            )
