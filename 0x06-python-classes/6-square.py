@@ -4,7 +4,11 @@
 
 
 class Square:
-    """This class implements a Square"""
+    """This class implements a Square
+    Attributes:
+        size: size of square
+        position: position of square
+        """
 
     def __init__(self, size=0, position=(0, 0)):
         """Initialize attributes"""
