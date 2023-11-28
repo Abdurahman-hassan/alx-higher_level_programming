@@ -1,0 +1,239 @@
+=============================
+The ``0-add_integer`` module
+=============================
+
+-----------------------------
+Using ``add_integer``
+-----------------------------
+
+Function to add two integers.
+
+Args:
+    a: first integer.
+    b: second integer.
+Returns:
+    The addition of a and b.
+Raises:
+    TypeError: If a or b are not integers or floats.
+
+Examples:
+Import add_integer function from the module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+. Basic usage
+    >>> add_integer(1, 2)
+    3
+
+. Negative numbers
+    >>> add_integer(-1, -2)
+    -3
+
+. Negative floats
+    >>> add_integer(-1.5, -2.5)
+    -3
+
+. Negative and positive numbers
+    >>> add_integer(-1, 2)
+    1
+
+. float and negative numbers
+    >>> add_integer(-1, 2.5)
+    1
+
+.float and positive numbers
+    >>> add_integer(1, 2.5)
+    3
+
+. Zero
+    >>> add_integer(0, 0)
+    0
+
+. One
+    >>> add_integer(1, 0)
+    1
+
+. Large numbers
+    >>> add_integer(1000, 2000)
+    3000
+
+. Floats
+    >>> add_integer(1, 2.5)
+    3
+
+. Strings
+    >>> add_integer(1, "2")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Strings and strings
+    >>> add_integer("1", "2")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+. Strings with spaces
+    >>> add_integer(1, " 2")
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. None arguments
+    >>> add_integer(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+. None arguments in both
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+. First number is None
+    >>> add_integer(None, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+. Second number is None
+    >>> add_integer(1, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. First arg only
+    >>> add_integer(100)
+    198
+
+. Second arg only
+    >>> add_integer(b=100)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+. add one float argument
+    >>> add_integer(3.14159)
+    101
+
+. Lists
+    >>> add_integer(1, [2])
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Lists (empty)
+    >>> add_integer(1, [])
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Lists (empty)
+    >>> add_integer([], 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+. Tuples
+    >>> add_integer(1, (2,))
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Dictionaries
+    >>> add_integer(1, {2: 2})
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Booleans
+    >>> add_integer(1, True)
+    2
+
+. Booleans (False)
+    >>> add_integer(1, False)
+    1
+
+. None
+    >>> add_integer(1, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. add more arguments
+    >>> add_integer(1, 2, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+. Complex number
+    >>> add_integer(1, 1j)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Complex number with real part
+    >>> add_integer(1, 1 + 1j)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Complex number with imaginary part
+    >>> add_integer(1, 1j + 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. Complex number with real and imaginary part
+    >>> add_integer(1, 1 + 1j)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+. add infinity
+    >>> add_integer(float('inf'), 1)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+. add negative infinity
+    >>> add_integer(float('-inf'), 1)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+. add NaN
+    >>> add_integer(float('NaN'), 1)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
+. add infinity
+    >>> add_integer(1, float('inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+. add negative infinity
+    >>> add_integer(1, float('-inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+. add NaN
+    >>> add_integer(1, float('NaN'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
+. add negative infinity
+    >>> add_integer(float('-inf'), float('-inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+. not add NaN
+    >>> add_integer(float('NaN'), float('NaN'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
