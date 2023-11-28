@@ -1,0 +1,151 @@
+============================
+The ``3-say_my_name`` module
+============================
+
+----------------------
+Using ``say_my_name``
+----------------------
+
+Import say_my_name function from the module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+. Test with correct arguments:
+    >>> say_my_name("Abdelrahman", "Hassan")
+    My name is Abdelrahman Hassan
+
+. Test with an empty string:
+    >>> say_my_name("", "Hassan")
+    My name is  Hassan
+
+. Test with an empty string for both arguments:
+    >>> say_my_name("", "")
+    My name is  
+
+. Test with only one argument:
+    >>> say_my_name("Abdo")
+    My name is Abdo 
+
+. space in the first name:
+    >>> say_my_name("Abdelrahman ", "Hassan")
+    My name is Abdelrahman  Hassan
+
+. space in the last name:
+    >>> say_my_name("Abdelrahman", " Hassan")
+    My name is Abdelrahman  Hassan
+
+
+. Test with wrong arguments:
+    >>> say_my_name(12, "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name("John", 12)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(12, 12)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name("John", [12])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name([12], "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name([12], [12])
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name("John", 12.5)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(12.5, "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(12.5, 12.5)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name("John", True)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(True, "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(True, True)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name("John", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(None, "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+. Test with wrong arguments:
+    >>> say_my_name(None, None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+
+. Test with wrong arguments:
+    >>> say_my_name("", "Smith")
+    My name is  Smith
+
+
+. Test with wrong arguments:
+    >>> say_my_name(" ", "Smith")
+    My name is   Smith
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.", "Sr.")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 4 were given
+
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.", "Sr.", "III")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 5 were given
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.", "Sr.", "III", "IV")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 6 were given
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.", "Sr.", "III", "IV", "V")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 7 were given
+
+. Test with wrong arguments:
+    >>> say_my_name("John", "Smith", "Jr.", "Sr.", "III", "IV", "V", "VI")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 8 were given
