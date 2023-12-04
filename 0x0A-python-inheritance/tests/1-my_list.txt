@@ -1,0 +1,73 @@
+=============================
+The ``1-my_list`` module
+=============================
+
+-----------------------------
+Using ``MyList``
+-----------------------------
+
+This module provides a class ``MyList`` that inherits from ``list``.
+
+    >>> MyList = __import__('1-my_list').MyList
+
+. basic use of my_list
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list
+[1]
+
+. use extend
+>>> my_list.extend([2, 3, 4])
+>>> my_list
+[1, 2, 3, 4]
+
+. use append
+>>> my_list.append([5, 6, 7])
+>>> my_list
+[1, 2, 3, 4, [5, 6, 7]]
+
+. use extend
+>>> my_list.extend([8, 9, 10])
+>>> my_list
+[1, 2, 3, 4, [5, 6, 7], 8, 9, 10]
+
+. use insert
+>>> my_list.insert(0, 0)
+>>> my_list
+[0, 1, 2, 3, 4, [5, 6, 7], 8, 9, 10]
+
+. use insert
+>>> my_list.insert(10, 11)
+>>> my_list
+[0, 1, 2, 3, 4, [5, 6, 7], 8, 9, 10, 11]
+
+. use insert
+>>> my_list.insert(100, 100)
+>>> my_list
+[0, 1, 2, 3, 4, [5, 6, 7], 8, 9, 10, 11, 100]
+
+. use pop
+>>> my_list.pop()
+100
+
+>>> my_list
+[0, 1, 2, 3, 4, [5, 6, 7], 8, 9, 10, 11]
+
+>>> my_list.pop(0)
+0
+
+>>> my_list
+[1, 2, 3, 4, [5, 6, 7], 8, 9, 10, 11]
+
+. use reverse
+>>> my_list.reverse()
+>>> my_list
+[11, 10, 9, 8, [5, 6, 7], 4, 3, 2, 1]
+
+. use remove
+>>> my_list.remove(8)
+>>> my_list
+[11, 10, 9, [5, 6, 7], 4, 3, 2, 1]
+
+>>> my_list
+[11, 10, 9, [5, 6, 7], 4, 3, 2, 1]
