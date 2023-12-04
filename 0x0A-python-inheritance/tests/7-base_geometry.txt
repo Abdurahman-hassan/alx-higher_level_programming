@@ -35,8 +35,6 @@ This module provides a class ``BaseGeometry`` that inherits from ``list``.
         ...
     TypeError: area() takes 1 positional argument but 2 were given
 
-.add normal number:
-    >>> bg.integer_validator("my_int", 12)
 
 .pass string to the second argument:
     >>> bg.integer_validator("name", "John")
