@@ -6,94 +6,98 @@ The ``7-base_geometry`` module
 Using ``BaseGeometry``
 -----------------------------
 
-This module provides a class ``BaseGeometry`` that inherits from ``list``.
-. import BaseGeometry
+.Import BaseGeometry class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-.call area method:
+.area method:
     >>> bg.area()
     Traceback (most recent call last):
         ...
     Exception: area() is not implemented
 
-.call area method with more arguments than expected:
+.Try area method with more arguments than expected:
     >>> bg.area(98)
     Traceback (most recent call last):
         ...
     TypeError: area() takes 1 positional argument but 2 were given
 
+.Try normal number:
+    >>> bg.integer_validator("my_int", 12)
 
-.pass string to the second argument:
+.Try to pass string to the second argument:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass zero to the second argument:
+.Try to pass zero to the second argument:
     >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
         ...
     ValueError: name must be greater than 0
 
-.pass negative number to the second argument:
+.Try to pass negative number to the second argument:
     >>> bg.integer_validator("name", -4)
     Traceback (most recent call last):
         ...
     ValueError: name must be greater than 0
 
-.pass float number to the second argument:
+.Try to pass float number to the second argument:
     >>> bg.integer_validator("name", 2.4)
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass list to the second argument:
+.Try to pass list to the second argument:
     >>> bg.integer_validator("name", [98])
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass tuple to the second argument:
+.Try to pass tuple to the second argument:
     >>> bg.integer_validator("name", (98, 1))
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass dictionary to the second argument:
+.Try to pass dictionary to the second argument:
     >>> bg.integer_validator("name", {"num", 98})
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass boolean value to the second argument:
+.Try to pass boolean value to the second argument:
     >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
 
-.pass None to the second argument:
+.Try to pass None to the second argument:
     >>> bg.integer_validator("name", None)
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-.pass None as argument:
+.Try to pass None as argument:
     >>> bg.integer_validator(None)
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-.pass empty arguments:
+.Try to pass empty arguments:
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-.add one missing argument:
+.Try one missing argument:
     >>> bg.integer_validator("name")
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-.add too many arguments:
+.Try too many arguments:
     >>> bg.integer_validator("name", 2, 1)
     Traceback (most recent call last):
         ...
