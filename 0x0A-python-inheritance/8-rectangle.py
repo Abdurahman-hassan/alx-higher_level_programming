@@ -47,10 +47,3 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
-
-    def __str__(self):
-        """
-        Returns a string representation of a BaseGeometry object.
-        """
-
-        return f"[BaseGeometry] {self.__width}/{self.__height}"
