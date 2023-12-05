@@ -14,7 +14,9 @@ def class_to_json(obj):
             obj: object to be serialized
 
         Returns:
-            Dictionary description with simple data structure (list, dictionary,
-            string, integer and boolean) for JSON serialization of an object
+            Dictionary description with
+            simple data structure (list, dictionary,
+            string, integer and boolean)
+            for JSON serialization of an object
     """
     return obj.__dict__
