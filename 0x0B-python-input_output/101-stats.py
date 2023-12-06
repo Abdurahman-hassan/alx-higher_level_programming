@@ -6,16 +6,15 @@ import sys
 
 def signal_handler(sig, frame):
     """ Signal handler for CTRL+C """
-    print_statistics()
+    print_stats(total_size, status_codes)
     sys.exit(0)
 
 
-def print_statistics():
+def print_stats(total_size, status_codes):
     """ Print statistics """
     print("File size: {}".format(total_size))
-    for code in sorted(status_codes):
-        if code in valid_codes:
-            print("{}: {}".format(code, status_codes[code]))
+    for code in sorted(status_codes.keys()):
+        print("{}: {}".format(code, status_codes[code]))
 
 
 # Register the signal handler for CTRL+C
@@ -31,26 +30,27 @@ valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
 try:
     for line in sys.stdin:
         if line_count == 10:
-            print_statistics()
-            line_count = 0
+            print_stats(total_size, status_codes)
+            line_count = 1
+        else:
+            line_count += 1
 
-        line_count += 1
+        data = line.split()
 
         try:
-            parts = line.split()
-            status_code = str(int(parts[-2]))  # Ensure it's a valid integer then convert to string
-            file_size = int(parts[-1])
-
-            # Update statistics
-            total_size += file_size
-            if status_code in valid_codes:
-                status_codes[status_code] = status_codes.get(status_code, 0) + 1
-
+            total_size += int(data[-1])
         except (ValueError, IndexError):
             pass
 
-    print_statistics()
+        try:
+            status_code = data[-2]
+            if status_code in valid_codes:
+                status_codes[status_code] = status_codes.get(status_code, 0) + 1
+        except IndexError:
+            pass
+
+    print_stats(total_size, status_codes)
 
 except KeyboardInterrupt:
-    print_statistics()
+    print_stats(total_size, status_codes)
     raise
