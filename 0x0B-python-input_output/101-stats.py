@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 
-import sys
 import signal
+import sys
+
 
 def signal_handler(sig, frame):
     """ Signal handler for CTRL+C """
     print_statistics()
     sys.exit(0)
+
 
 def print_statistics():
     """ Print statistics """
@@ -14,6 +16,7 @@ def print_statistics():
     for code in sorted(status_codes):
         if code in valid_codes:
             print("{}: {}".format(code, status_codes[code]))
+
 
 # Register the signal handler for CTRL+C
 signal.signal(signal.SIGINT, signal_handler)
