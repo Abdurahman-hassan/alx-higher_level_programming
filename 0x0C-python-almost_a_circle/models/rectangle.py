@@ -102,6 +102,32 @@ class Rectangle(Base):
             rectangle += (" " * self.x) + ("#" * self.width) + "\n"
         print(rectangle, end="")
 
+    def update(self, *args, **kwargs):
+        """Updates the Rectangle instance by assigning an argument to each
+        attribute.
+        Args:
+            args (tuple): A tuple of arguments.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represents height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            kwargs (dict): A dictionary of arguments.
+                - Only key/value arguments are accepted
+        """
+        attr_order = ['id', 'width', 'height', 'x', 'y']
+
+        # Update using args
+        if args:
+            for attr, value in zip(attr_order, args):
+                setattr(self, attr, value)
+
+        # Update using kwargs
+        elif kwargs:
+            for key, value in kwargs.items():
+                if key in attr_order:
+                    setattr(self, key, value)
+
     def __str__(self):
         """Returns the string representation of a Rectangle instance."""
         return "[{}] ({}) {}/{} - {}/{}".format(
