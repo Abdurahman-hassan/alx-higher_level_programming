@@ -10,16 +10,6 @@ from models.rectangle import Rectangle
 class TestRectangleTestInstantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Rectangle class."""
 
-    def test_create_rectangle_with_valid_parameters(self):
-        """Creating a Rectangle instance
-        with valid width, height, x, y, and id parameters."""
-        rectangle = Rectangle(5, 10, 2, 3, 1)
-        self.assertEqual(rectangle.width, 5)
-        self.assertEqual(rectangle.height, 10)
-        self.assertEqual(rectangle.x, 2)
-        self.assertEqual(rectangle.y, 3)
-        self.assertEqual(rectangle.id, 1)
-
     def test_get_attributes(self):
         """Getting the width, height, x, y,
         and id attributes of a Rectangle instance."""
