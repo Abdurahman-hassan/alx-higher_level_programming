@@ -128,6 +128,14 @@ class Rectangle(Base):
                 if key in attr_order:
                     setattr(self, key, value)
 
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle instance."""
+        return {'x': getattr(self, "x"),
+                'y': getattr(self, "y"),
+                'id': getattr(self, "id"),
+                'height': getattr(self, "height"),
+                'width': getattr(self, "width")}
+
     def __str__(self):
         """Returns the string representation of a Rectangle instance."""
         return "[{}] ({}) {}/{} - {}/{}".format(
