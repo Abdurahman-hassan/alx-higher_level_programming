@@ -96,10 +96,11 @@ class Rectangle(Base):
             print("")
             return
 
-        for i in range(self.y):
-            print()
+        rectangle = ""
+        print("\n" * self.y, end="")
         for i in range(self.height):
-            print(" " * self.x + "#" * self.width)
+            rectangle += (" " * self.x) + ("#" * self.width) + "\n"
+        print(rectangle, end="")
 
     def __str__(self):
         """Returns the string representation of a Rectangle instance."""
