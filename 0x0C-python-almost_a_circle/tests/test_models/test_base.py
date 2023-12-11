@@ -4,15 +4,32 @@
 """Defines a test for the Base class.
 
    unittest classes:
-        TestBaseClassInstantiation - test instantiation of the Base class.
-        TestBaseClassToJSONString - test the to_json_string method of the Base class.
-        TestBaseClassFromJSONString - test the from_json_string method of the Base class.
-        TestBaseClassSaveToFile - test the save_to_file method of the Base class.
-        TestBaseClassCreate - test the create method of the Base class.
-        TestBaseClassLoadFromFile - test the load_from_file method of the Base class.
-        TestBaseClassSaveToCSV - test the save_to_csv method of the Base class.
-        TestBaseClassLoadFromCSV - test the load_from_csv method of the Base class.
-        TestBaseClassDraw - test the draw method of the Base class.
+        TestBaseClassInstantiation -
+        test instantiation of the Base class.
+
+        TestBaseClassToJSONString -
+        test the to_json_string method of the Base class.
+
+        TestBaseClassFromJSONString -
+        test the from_json_string method of the Base class.
+
+        TestBaseClassSaveToFile -
+        test the save_to_file method of the Base class.
+
+        TestBaseClassCreate -
+        test the create method of the Base class.
+
+        TestBaseClassLoadFromFile -
+        test the load_from_file method of the Base class.
+
+        TestBaseClassSaveToCSV -
+        test the save_to_csv method of the Base class.
+
+        TestBaseClassLoadFromCSV -
+        test the load_from_csv method of the Base class.
+
+        TestBaseClassDraw -
+        test the draw method of the Base class.
 
 """
 import json
@@ -232,18 +249,23 @@ class TestBaseClassToJSONString(unittest.TestCase):
             Base.to_json_string([], [])
 
     def test_empty_list(self):
-        """Returns an empty list as a JSON string when given None or an empty list."""
+        """Returns an empty list as a
+        JSON string when given None or an empty list."""
         json_str = Base.to_json_string([])
         self.assertEqual(json_str, "[]")
 
     def test_list_of_dicts(self):
-        """Returns a JSON string representation of a list of dictionaries."""
-        list_dictionaries = [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 30}]
+        """Returns a JSON string representation
+        of a list of dictionaries."""
+        list_dictionaries = [{'name': 'John', 'age': 25},
+                             {'name': 'Jane', 'age': 30}]
         json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str, '[{"name": "John", "age": 25}, {"name": "Jane", "age": 30}]')
+        self.assertEqual(json_str, '[{"name": "John", "age": 25},'
+                                   ' {"name": "Jane", "age": 30}]')
 
     def test_single_none(self):
-        """Tests to_json_string method with a list with a single None value as argument."""
+        """Tests to_json_string method with
+        a list with a single None value as argument."""
         json_str = Base.to_json_string([None])
         self.assertEqual(json_str, '[null]')
 
@@ -258,49 +280,53 @@ class TestBaseClassToJSONString(unittest.TestCase):
             Base.to_json_string([], [])
 
     def test_nested_dicts(self):
-        """ Returns a JSON string representation of a list of dictionaries with nested dictionaries."""
-        list_dictionaries = [{'name': 'John', 'age': 25, 'address': {'street': '123 Main St', 'city': 'New York'}},
-                             {'name': 'Jane', 'age': 30, 'address': {'street': '456 Elm St', 'city': 'Los Angeles'}}]
+        """Returns a JSON string representation of a list of dictionaries
+        with nested dictionaries."""
+        list_dictionaries = [
+            {'name': 'John', 'age': 25,
+             'address': {'street': '123 Main St', 'city': 'New York'}},
+            {'name': 'Jane', 'age': 30,
+             'address': {'street': '456 Elm St', 'city': 'Los Angeles'}}
+        ]
         json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str,
-                         '[{"name": "John", "age": 25, "address": '
-                         '{"street": "123 Main St", "city": "New York"}}, '
-                         '{"name": "Jane", "age": 30, '
-                         '"address": {"street": "456 Elm St", "city": "Los Angeles"}}]')
-
-    def test_nested_lists(self):
-        """ Returns a JSON string representation of a list of dictionaries with nested lists."""
-        list_dictionaries = [{'name': 'John', 'age': 25, 'hobbies': ['reading', 'running']},
-                             {'name': 'Jane', 'age': 30, 'hobbies': ['painting', 'cooking']}]
-        json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str,
-                         '[{"name": "John", "age": 25, "hobbies": ["reading", "running"]},'
-                         ' {"name": "Jane", "age": 30, "hobbies": ["painting", "cooking"]}]')
+        expected_json = (
+            '[{"name": "John", "age": 25,'
+            ' "address": {"street": "123 Main St", '
+            '"city": "New York"}}, {"name": "Jane", "age": 30, "address": '
+            '{"street": "456 Elm St", "city": "Los Angeles"}}]'
+        )
+        self.assertEqual(json_str, expected_json)
 
     def test_non_string_keys(self):
         """ Returns a JSON string representation
         of a list of dictionaries with non-string keys."""
         list_dictionaries = [{1: 'John', 2: 25}, {3: 'Jane', 4: 30}]
         json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str, '[{"1": "John", "2": 25}, {"3": "Jane", "4": 30}]')
+        self.assertEqual(json_str, '[{"1": "John", "2": 25}, '
+                                   '{"3": "Jane", "4": 30}]')
 
     def test_non_string_values(self):
         """ Returns a JSON string representation of a list of
         dictionaries with non-string values."""
-        list_dictionaries = [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 30.5}]
+        list_dictionaries = [{'name': 'John', 'age': 25},
+                             {'name': 'Jane', 'age': 30.5}]
         json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str, '[{"name": "John", "age": 25}, {"name": "Jane", "age": 30.5}]')
+        self.assertEqual(json_str, '[{"name": "John", "age": 25}, '
+                                   '{"name": "Jane", "age": 30.5}]')
 
     def test_non_ascii_characters(self):
         """ Returns a JSON string representation of a list of
         dictionaries with non-ASCII characters."""
-        list_dictionaries = [{'name': 'John', 'age': 25}, {'name': 'abdo', 'age': 30}]
+        list_dictionaries = [{'name': 'John', 'age': 25},
+                             {'name': 'abdo', 'age': 30}]
         json_str = Base.to_json_string(list_dictionaries)
-        self.assertEqual(json_str, '[{"name": "John", "age": 25}, {"name": "abdo", "age": 30}]')
+        self.assertEqual(json_str, '[{"name": "John", "age": 25}, '
+                                   '{"name": "abdo", "age": 30}]')
 
 
 class TestBaseClassFromJSONString(unittest.TestCase):
-    """Unittests for testing the from_json_string method of the Base class.
+    """Unittests for testing the
+    from_json_string method of the Base class.
     """
 
     def setUp(self):
@@ -309,23 +335,29 @@ class TestBaseClassFromJSONString(unittest.TestCase):
         Base._Base__nb_objects = 0
 
     def test_from_json_string_with_empty_string(self):
-        """Tests from_json_string method with an empty string as argument."""
+        """Tests from_json_string
+         method with an empty string as argument."""
         list_dictionaries = Base.from_json_string("")
         self.assertEqual(list_dictionaries, [])
 
     def test_empty_list(self):
-        """Tests from_json_string method with an empty list as argument."""
+        """Tests from_json_string method
+         with an empty list as argument."""
         list_dictionaries = Base.from_json_string("[]")
         self.assertEqual(list_dictionaries, [])
 
     def test_list_of_dicts(self):
-        """Tests from_json_string method with a list of dicts as argument."""
+        """Tests from_json_string method
+        with a list of dicts as argument."""
         json_str = '[{"name": "John", "age": 25}, {"name": "Jane", "age": 30}]'
         list_dictionaries = Base.from_json_string(json_str)
-        self.assertEqual(list_dictionaries, [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 30}])
+        self.assertEqual(list_dictionaries,
+                         [{'name': 'John', 'age': 25},
+                          {'name': 'Jane', 'age': 30}])
 
     def test_single_none(self):
-        """Tests from_json_string method with a list with a single None value as argument."""
+        """Tests from_json_string method
+        with a list with a single None value as argument."""
         list_dictionaries = Base.from_json_string("[null]")
         self.assertEqual(list_dictionaries, [None])
 
@@ -340,23 +372,40 @@ class TestBaseClassFromJSONString(unittest.TestCase):
             Base.from_json_string([], [])
 
     def test_nested_dicts(self):
-        """Tests from_json_string method with a list of dicts with nested dicts as argument."""
-        json_str = '[{"name": "John", "age": 25, "address": {"street": "123 Main St", "city": "New York"}}, ' \
-                   '{"name": "Jane", "age": 30, "address": {"street": "456 Elm St", "city": "Los Angeles"}}]' \
-                   ''
+        """Tests from_json_string method with a list of dicts with nested dicts
+        as argument."""
+        json_str = (
+            '[{"name": "John", "age": 25,'
+            ' "address": {"street": "123 Main St", '
+            '"city": "New York"}}, {"name": "Jane", "age": 30, "address": '
+            '{"street": "456 Elm St", "city": "Los Angeles"}}]'
+        )
         list_dictionaries = Base.from_json_string(json_str)
-        self.assertEqual(list_dictionaries,
-                         [{'name': 'John', 'age': 25, 'address': {'street': '123 Main St', 'city': 'New York'}},
-                          {'name': 'Jane', 'age': 30, 'address': {'street': '456 Elm St', 'city': 'Los Angeles'}}])
+        self.assertEqual(
+            list_dictionaries,
+            [
+                {'name': 'John', 'age': 25,
+                 'address': {'street': '123 Main St', 'city': 'New York'}},
+                {'name': 'Jane', 'age': 30,
+                 'address': {'street': '456 Elm St', 'city': 'Los Angeles'}}
+            ]
+        )
 
     def test_nested_lists(self):
-        """Tests from_json_string method with a list of dicts with nested lists as argument."""
-        json_str = '[{"name": "John", "age": 25, "hobbies": ["reading", "running"]}, ' \
-                   '{"name": "Jane", "age": 30, "hobbies": ["painting", "cooking"]}]'
+        """Tests from_json_string method with a list of dicts with nested lists
+        as argument."""
+        json_str = (
+            '[{"name": "John", "age": 25, "hobbies": ["reading", "running"]}, '
+            '{"name": "Jane", "age": 30, "hobbies": ["painting", "cooking"]}]'
+        )
         list_dictionaries = Base.from_json_string(json_str)
-        self.assertEqual(list_dictionaries,
-                         [{'name': 'John', 'age': 25, 'hobbies': ['reading', 'running']},
-                          {'name': 'Jane', 'age': 30, 'hobbies': ['painting', 'cooking']}])
+        self.assertEqual(
+            list_dictionaries,
+            [
+                {'name': 'John', 'age': 25, 'hobbies': ['reading', 'running']},
+                {'name': 'Jane', 'age': 30, 'hobbies': ['painting', 'cooking']}
+            ]
+        )
 
     def test_from_json_string_with_None(self):
         """
@@ -371,11 +420,14 @@ class TestBaseClassFromJSONString(unittest.TestCase):
         """
         json_str = '[{"name": "John", "age": 25}, {"name": "Jane", "age": 30}]'
         list_dictionaries = Base.from_json_string(json_str)
-        self.assertEqual(list_dictionaries, [{"name": "John", "age": 25}, {"name": "Jane", "age": 30}])
+        self.assertEqual(list_dictionaries,
+                         [{"name": "John", "age": 25},
+                          {"name": "Jane", "age": 30}])
 
     def test_from_json_string_with_single_null_value(self):
         """
-        Tests from_json_string method with a JSON string containing a single null value.
+        Tests from_json_string method with a
+        JSON string containing a single null value.
         """
         json_str = '[null]'
         list_dictionaries = Base.from_json_string(json_str)
@@ -383,12 +435,16 @@ class TestBaseClassFromJSONString(unittest.TestCase):
 
     def test_from_json_string_with_nested_dicts_and_lists(self):
         """
-        Tests from_json_string method with a JSON string containing nested dictionaries and lists.
+        Tests from_json_string method with a
+        JSON string containing nested dictionaries and lists.
         """
-        json_str = '[{"name": "John", "age": [25, 30]}, {"name": {"first": "Jane", "last": "Doe"}, "age": [35, 40]}]'
+        json_str = ('[{"name": "John", "age": [25, 30]}, '
+                    '{"name": {"first": "Jane",'
+                    ' "last": "Doe"}, "age": [35, 40]}]')
         list_dictionaries = Base.from_json_string(json_str)
         expected_result = [{"name": "John", "age": [25, 30]},
-                           {"name": {"first": "Jane", "last": "Doe"}, "age": [35, 40]}]
+                           {"name": {"first": "Jane",
+                                     "last": "Doe"}, "age": [35, 40]}]
         self.assertEqual(list_dictionaries, expected_result)
 
     def test_from_json_string_with_no_args(self):
@@ -407,7 +463,8 @@ class TestBaseClassFromJSONString(unittest.TestCase):
 
     def test_from_json_string_with_empty_list(self):
         """
-        Tests from_json_string method with a JSON string representing an empty list.
+        Tests from_json_string method with a
+        JSON string representing an empty list.
         """
         json_str = '[]'
         list_dictionaries = Base.from_json_string(json_str)
@@ -415,11 +472,14 @@ class TestBaseClassFromJSONString(unittest.TestCase):
 
     def test_from_json_string_with_string_keys(self):
         """
-        Tests from_json_string method with a JSON string representing a list of dictionaries with string keys.
+        Tests from_json_string method with a
+        JSON string representing a list of dictionaries with string keys.
         """
-        json_str = '[{"name": "John", "age": 25}, {"name": "Jane", "age": 30}]'
+        json_str = ('[{"name": "John", "age": 25},'
+                    ' {"name": "Jane", "age": 30}]')
         list_dictionaries = Base.from_json_string(json_str)
-        expected_result = [{"name": "John", "age": 25}, {"name": "Jane", "age": 30}]
+        expected_result = [{"name": "John", "age": 25},
+                           {"name": "Jane", "age": 30}]
         self.assertEqual(list_dictionaries, expected_result)
 
 
@@ -613,10 +673,11 @@ class TestBaseClassCreate(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertNotEqual(s1, s2)
 
-    #  Should create a new instance of the Rectangle class with default values if no arguments are passed and the class name is Rectangle
     def test_create_rectangle_with_default_values(self):
         """
-        Test that create method creates a new instance of the Rectangle class with default values if no arguments are passed and the class name is Rectangle
+        Test that create method creates a new instance of
+        the Rectangle class with default values if no
+         arguments are passed and the class name is Rectangle
         """
         # Create a new instance using the create method
         instance = Rectangle.create()
@@ -631,10 +692,11 @@ class TestBaseClassCreate(unittest.TestCase):
         self.assertEqual(instance.x, 0)
         self.assertEqual(instance.y, 0)
 
-    #  Should create a new instance of the Square class with default values if no arguments are passed and the class name is Square
     def test_create_square_with_default_values(self):
         """
-        Test that create method creates a new instance of the Square class with default values if no arguments are passed and the class name is Square
+        Test that create method creates a new instance of
+        the Square class with default values if no
+        arguments are passed and the class name is Square
         """
         # Create a new instance using the create method
         instance = Square.create()
@@ -650,9 +712,10 @@ class TestBaseClassCreate(unittest.TestCase):
 
     def test_create_rectangle_with_specified_attributes(self):
         """
-        Test that create method creates a new instance of the Rectangle class with the specified attributes if the class name is Rectangle
+        Test that create method creates a new instance of
+        the Rectangle class with the specified attributes
+         if the class name is Rectangle
         """
-        # Create a new instance using the create method with specified attributes
         instance = Rectangle.create(id=2, width=5, height=10, x=1, y=2)
 
         # Check that the instance is of the correct class
@@ -667,9 +730,9 @@ class TestBaseClassCreate(unittest.TestCase):
 
     def test_create_without_keyword_arguments(self):
         """
-        Test that create method raises a TypeError if arguments are not passed as keyword arguments
+        Test that create method raises a TypeError
+        if arguments are not passed as keyword arguments
         """
-        # Try to create a new instance using the create method without keyword arguments
         with self.assertRaises(TypeError):
             instance = Base.create(2)
 
@@ -954,9 +1017,9 @@ class TestBaseClassSaveToCSV(unittest.TestCase):
             self.assertTrue("3,2,4,1,2", f.read())
 
     #  Method writes an empty file if list_objs is None or empty
-    def test_save_to_file_csv_writes_empty_file_if_list_objs_is_none_or_empty(self):
-        # Arrange
-        # Act
+    def test_save_to_file_csv_writes_empty(self):
+        """ test_save_to_file_csv_writes_
+        empty_file_if_list_objs_is_none_or_empty"""
         Rectangle.save_to_file_csv(None)
         # Assert
         with open("Rectangle.csv", "r") as f:
@@ -1034,7 +1097,9 @@ class TestBaseClassLoadFromCSV(unittest.TestCase):
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file_csv([r1, r2])
         output = Rectangle.load_from_file_csv()
-        self.assertTrue(all(type(obj) == Rectangle for obj in output))
+        self.assertTrue(
+            all(isinstance(obj, Rectangle) for obj in output)
+        )
 
     def test_load_from_file_csv_first_square(self):
         s1 = Square(5, 1, 3, 3)
@@ -1055,7 +1120,7 @@ class TestBaseClassLoadFromCSV(unittest.TestCase):
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file_csv([s1, s2])
         output = Square.load_from_file_csv()
-        self.assertTrue(all(type(obj) == Square for obj in output))
+        self.assertTrue(all(isinstance(obj, Square) for obj in output))
 
     def test_load_from_file_csv_more_than_one_arg(self):
         with self.assertRaises(TypeError):
@@ -1094,10 +1159,14 @@ class TestBaseClassDraw(unittest.TestCase):
         turt = Turtle()
 
         # Set the background color to "#b7312c"
-        turt.screen.bgcolor((0.7176470588235294, 0.19215686274509805, 0.17254901960784313))
+        turt.screen.bgcolor((0.7176470588235294,
+                             0.19215686274509805,
+                             0.17254901960784313))
 
         # Check if the background color is set correctly
-        self.assertEqual(turt.screen.bgcolor(), (0.7176470588235294, 0.19215686274509805, 0.17254901960784313))
+        self.assertEqual(turt.screen.bgcolor(), (0.7176470588235294,
+                                                 0.19215686274509805,
+                                                 0.17254901960784313))
 
         #  It sets the turtle's pen size to 3.
 
@@ -1150,10 +1219,14 @@ class TestBaseClassDraw(unittest.TestCase):
         turt = Turtle()
 
         # Set the color to "#b5e3d8" for squares
-        turt.color((0.7098039215686275, 0.8901960784313725, 0.8470588235294118))
+        turt.color((0.7098039215686275,
+                    0.8901960784313725,
+                    0.8470588235294118))
 
         # Check if the color is set correctly for squares
-        self.assertEqual(turt.color()[0], (0.7098039215686275, 0.8901960784313725, 0.8470588235294118))
+        self.assertEqual(turt.color()[0], (0.7098039215686275,
+                                           0.8901960784313725,
+                                           0.8470588235294118))
 
 
 if __name__ == "__main__":

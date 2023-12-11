@@ -75,7 +75,8 @@ class Base:
         """
             Return an instance with all attributes already set
             Args:
-                **dictionary (dict): Key/value pairs of attributes to initialize
+                **dictionary (dict):
+                Key/value pairs of attributes to initialize
                     an instance with.
 
             Returns:

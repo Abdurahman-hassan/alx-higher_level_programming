@@ -12,11 +12,12 @@ Unittest classes:
     TestSquare_class_update_args
     TestSquare_class_update_kwargs
     TestSquare_class_to_dictionary
-    
 """
+
 import io
 import sys
 import unittest
+
 from models.base import Base
 from models.square import Square
 
