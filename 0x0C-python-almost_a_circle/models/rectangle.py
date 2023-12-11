@@ -65,7 +65,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Setter for x attribute."""
-        if type(value) != int:
+        if isinstance(value, int) is False:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -129,11 +129,11 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle instance."""
-        return {'x': getattr(self, "x"),
-                'y': getattr(self, "y"),
-                'id': getattr(self, "id"),
+        return {'id': getattr(self, "id"),
+                'width': getattr(self, "width"),
                 'height': getattr(self, "height"),
-                'width': getattr(self, "width")}
+                'x': getattr(self, "x"),
+                'y': getattr(self, "y")}
 
     def __str__(self):
         """Returns the string representation of a Rectangle instance."""
