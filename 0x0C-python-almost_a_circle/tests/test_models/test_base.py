@@ -9,7 +9,10 @@
         TestBaseClassFromJSONString - test the from_json_string method of the Base class.
         TestBaseClassSaveToFile - test the save_to_file method of the Base class.
         TestBaseClassCreate - test the create method of the Base class.
-
+        TestBaseClassLoadFromFile - test the load_from_file method of the Base class.
+        TestBaseClassSaveToCSV - test the save_to_csv method of the Base class.
+        TestBaseClassLoadFromCSV - test the load_from_csv method of the Base class.
+        TestBaseClassDraw - test the draw method of the Base class.
 
 """
 import json
