@@ -1151,3 +1151,7 @@ class TestBaseClassDraw(unittest.TestCase):
 
         # Check if the color is set correctly for squares
         self.assertEqual(turt.color()[0], (0.7098039215686275, 0.8901960784313725, 0.8470588235294118))
+
+
+if __name__ == "__main__":
+    unittest.main()
