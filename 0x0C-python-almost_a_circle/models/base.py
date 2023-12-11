@@ -150,6 +150,7 @@ class Base:
         except FileNotFoundError:
             return []
 
+    @staticmethod
     def draw(list_rectangles, list_squares):
         """Draw Rectangles and Squares using the turtle module.
 
@@ -157,35 +158,26 @@ class Base:
             list_rectangles (list): A list of Rectangle objects to draw.
             list_squares (list): A list of Square objects to draw.
         """
-        turt = turtle.Turtle()
-        turt.screen.bgcolor("#b7312c")
-        turt.pensize(3)
-        turt.shape("turtle")
+        import turtle
+        import random
 
-        turt.color("#ffffff")
-        for rect in list_rectangles:
-            turt.showturtle()
-            turt.up()
-            turt.goto(rect.x, rect.y)
-            turt.down()
+        t = turtle.Turtle()
+        t.screen.bgcolor("#b7312c")
+        t.pensize(3)
+        t.shape("turtle")
+        t.color("#ffffff")
+        t.speed(0)
+        for r in list_rectangles + list_squares:
+            t.penup()
+            t.setpos(r.x, r.y)
+            t.pendown()
+            t.fillcolor("#{:06x}".format(random.randint(0, 0xFFFFFF)))
+            t.begin_fill()
             for i in range(2):
-                turt.forward(rect.width)
-                turt.left(90)
-                turt.forward(rect.height)
-                turt.left(90)
-            turt.hideturtle()
-
-        turt.color("#b5e3d8")
-        for sq in list_squares:
-            turt.showturtle()
-            turt.up()
-            turt.goto(sq.x, sq.y)
-            turt.down()
-            for i in range(2):
-                turt.forward(sq.width)
-                turt.left(90)
-                turt.forward(sq.height)
-                turt.left(90)
-            turt.hideturtle()
-
+                t.forward(r.width)
+                t.left(90)
+                t.forward(r.height if type(r) is Rectangle else r.size)
+                t.left(90)
+            t.end_fill()
+        t.hideturtle()
         turtle.exitonclick()
