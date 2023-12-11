@@ -3,16 +3,16 @@
 """Defines unittests for models/rectangle.py.
 
 Unittest classes:
-    TestRectangle_Class_instantiation
-    TestRectangle_Class_width
-    TestRectangle_Class_height
-    TestRectangle_Class_x
-    TestRectangle_Class_y
-    TestRectangle_Class_order_of_initialization
-    TestRectangle_Class_area
-    TestRectangle_Class_stdout
-    TestRectangle_Class_update_args
-    TestRectangle_Class_update_kwargs
+    TestRectangle_class__instantiation
+    TestRectangle_class__width
+    TestRectangle_class__height
+    TestRectangle_class__x
+    TestRectangle_class__y
+    TestRectangle_class__order_of_initialization
+    TestRectangle_class__area
+    TestRectangle_class__stdout
+    TestRectangle_class__update_args
+    TestRectangle_class__update_kwargs
 """
 import io
 import sys
@@ -145,7 +145,7 @@ class TestRectangleTestInstantiation(unittest.TestCase):
         self.assertEqual(10, r.y)
 
 
-class TestRectangle_Class_width(unittest.TestCase):
+class TestRectangle_class__width(unittest.TestCase):
     """Unittests for testing initialization of Rectangle width attribute."""
 
     def test_None_width(self):
@@ -217,7 +217,7 @@ class TestRectangle_Class_width(unittest.TestCase):
             Rectangle(0, 2)
 
 
-class TestRectangle_Class_height(unittest.TestCase):
+class TestRectangle_class__height(unittest.TestCase):
     """Unittests for testing initialization of Rectangle height attribute."""
 
     def test_None_height(self):
@@ -289,7 +289,7 @@ class TestRectangle_Class_height(unittest.TestCase):
             Rectangle(1, 0)
 
 
-class TestRectangle_Class_x(unittest.TestCase):
+class TestRectangle_class__x(unittest.TestCase):
     """Unittests for testing initialization of Rectangle x attribute."""
 
     def test_None_x(self):
@@ -357,7 +357,7 @@ class TestRectangle_Class_x(unittest.TestCase):
             Rectangle(5, 3, -1, 0)
 
 
-class TestRectangle_Class_y(unittest.TestCase):
+class TestRectangle_class__y(unittest.TestCase):
     """Unittests for testing initialization of Rectangle y attribute."""
 
     def test_None_y(self):
@@ -425,7 +425,7 @@ class TestRectangle_Class_y(unittest.TestCase):
             Rectangle(3, 5, 0, -1)
 
 
-class TestRectangle_Class_order_of_initialization(unittest.TestCase):
+class TestRectangle_class__order_of_initialization(unittest.TestCase):
     """Unittests for testing Rectangle order of attribute initialization."""
 
     def test_width_before_height(self):
@@ -453,7 +453,7 @@ class TestRectangle_Class_order_of_initialization(unittest.TestCase):
             Rectangle(1, 2, "invalid x", "invalid y")
 
 
-class TestRectangle_Class_area(unittest.TestCase):
+class TestRectangle_class__area(unittest.TestCase):
     """Unittests for testing the area method of the Rectangle class."""
 
     def test_area_small(self):
@@ -476,7 +476,7 @@ class TestRectangle_Class_area(unittest.TestCase):
             r.area(1)
 
 
-class TestRectangle_Class_stdout(unittest.TestCase):
+class TestRectangle_class__stdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Rectangle class."""
 
     @staticmethod
@@ -501,7 +501,7 @@ class TestRectangle_Class_stdout(unittest.TestCase):
     # Test __str__ method
     def test_str_method_print_width_height(self):
         r = Rectangle(4, 6)
-        capture = TestRectangle_Class_stdout.capture_stdout(r, "print")
+        capture = TestRectangle_class__stdout.capture_stdout(r, "print")
         correct = "[Rectangle] ({}) 0/0 - 4/6\n".format(r.id)
         self.assertEqual(correct, capture.getvalue())
 
@@ -535,23 +535,23 @@ class TestRectangle_Class_stdout(unittest.TestCase):
     # Test display method
     def test_display_width_height(self):
         r = Rectangle(2, 3, 0, 0, 0)
-        capture = TestRectangle_Class_stdout.capture_stdout(r, "display")
+        capture = TestRectangle_class__stdout.capture_stdout(r, "display")
         self.assertEqual("##\n##\n##\n", capture.getvalue())
 
     def test_display_width_height_x(self):
         r = Rectangle(3, 2, 1, 0, 1)
-        capture = TestRectangle_Class_stdout.capture_stdout(r, "display")
+        capture = TestRectangle_class__stdout.capture_stdout(r, "display")
         self.assertEqual(" ###\n ###\n", capture.getvalue())
 
     def test_display_width_height_y(self):
         r = Rectangle(4, 5, 0, 1, 0)
-        capture = TestRectangle_Class_stdout.capture_stdout(r, "display")
+        capture = TestRectangle_class__stdout.capture_stdout(r, "display")
         display = "\n####\n####\n####\n####\n####\n"
         self.assertEqual(display, capture.getvalue())
 
     def test_display_width_height_x_y(self):
         r = Rectangle(2, 4, 3, 2, 0)
-        capture = TestRectangle_Class_stdout.capture_stdout(r, "display")
+        capture = TestRectangle_class__stdout.capture_stdout(r, "display")
         display = "\n\n   ##\n   ##\n   ##\n   ##\n"
         self.assertEqual(display, capture.getvalue())
 
@@ -561,7 +561,7 @@ class TestRectangle_Class_stdout(unittest.TestCase):
             r.display(1)
 
 
-class TestRectangle_Class_update_args(unittest.TestCase):
+class TestRectangle_class__update_args(unittest.TestCase):
     """Unittests for testing update args method of the Rectangle class."""
 
     # Test args
@@ -699,7 +699,7 @@ class TestRectangle_Class_update_args(unittest.TestCase):
             r.update(89, 1, 2, "invalid", "invalid")
 
 
-class TestRectangle_Class_update_kwargs(unittest.TestCase):
+class TestRectangle_class__update_kwargs(unittest.TestCase):
     """Unittests for testing update kwargs method of the Rectangle class."""
 
     def test_update_kwargs_one(self):
@@ -811,7 +811,7 @@ class TestRectangle_Class_update_kwargs(unittest.TestCase):
         self.assertEqual("[Rectangle] (89) 19/7 - 10/5", str(r))
 
 
-class TestRectangle_Class_to_dictionary(unittest.TestCase):
+class TestRectangle_class__to_dictionary(unittest.TestCase):
     """Unittests for testing to_dictionary method of the Rectangle class."""
 
     def test_to_dictionary_output(self):
