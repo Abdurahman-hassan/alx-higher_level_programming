@@ -43,13 +43,15 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """Updates a Square instance.
         """
+        attrs = ["id", "size", "x", "y"]
         if args:
-            attrs = ["id", "size", "x", "y"]
-            for i, e in enumerate(args):
-                setattr(self, attrs[i], e)
+            for attr, value in zip(attrs, args):
+                setattr(self, attr, value)
         elif kwargs:
             for k, v in kwargs.items():
                 setattr(self, k, v)
+
+        # Update using args
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square instance."""
