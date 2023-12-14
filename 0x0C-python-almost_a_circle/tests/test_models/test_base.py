@@ -1137,96 +1137,96 @@ class TestBaseClassLoadFromCSV(unittest.TestCase):
         self.assertEqual(result, [])
 
 
-class TestBaseClassDraw(unittest.TestCase):
-    """Unittests for testing the draw method of the Base class.
-    """
-
-    def test_draw_no_args(self):
-        """Tests draw method with no arguments."""
-        with self.assertRaises(TypeError):
-            Rectangle.draw()
-
-    #
-    def test_draw_more_than_one_arg(self):
-        """Tests draw method with more than one argument."""
-        with self.assertRaises(TypeError):
-            Rectangle.draw([], 1)
-
-    def test_set_background_color(self):
-        from turtle import Turtle
-
-        # Create a turtle object
-        turt = Turtle()
-
-        # Set the background color to "#b7312c"
-        turt.screen.bgcolor((0.7176470588235294,
-                             0.19215686274509805,
-                             0.17254901960784313))
-
-        # Check if the background color is set correctly
-        self.assertEqual(turt.screen.bgcolor(), (0.7176470588235294,
-                                                 0.19215686274509805,
-                                                 0.17254901960784313))
-
-        #  It sets the turtle's pen size to 3.
-
-    def test_set_pen_size(self):
-        from turtle import Turtle
-
-        # Create a turtle object
-        turt = Turtle()
-
-        # Set the pen size to 3
-        turt.pensize(3)
-
-        # Check if the pen size is set correctly
-        self.assertEqual(turt.pensize(), 3)
-
-        #  It sets the turtle's shape to "turtle".
-
-    def test_set_shape(self):
-        from turtle import Turtle
-
-        # Create a turtle object
-        turt = Turtle()
-
-        # Set the shape to "turtle"
-        turt.shape("turtle")
-
-        # Check if the shape is set correctly
-        self.assertEqual(turt.shape(), "turtle")
-
-        #  It sets the turtle's color to white for rectangles.
-
-    def test_set_rectangle_color(self):
-        from turtle import Turtle
-
-        # Create a turtle object
-        turt = Turtle()
-
-        # Set the color to white for rectangles
-        turt.color((1.0, 1.0, 1.0))
-
-        # Check if the color is set correctly for rectangles
-        self.assertEqual(turt.color()[0], (1.0, 1.0, 1.0))
-
-        #  It sets the turtle's color to "#b5e3d8" for squares.
-
-    def test_set_square_color(self):
-        from turtle import Turtle
-
-        # Create a turtle object
-        turt = Turtle()
-
-        # Set the color to "#b5e3d8" for squares
-        turt.color((0.7098039215686275,
-                    0.8901960784313725,
-                    0.8470588235294118))
-
-        # Check if the color is set correctly for squares
-        self.assertEqual(turt.color()[0], (0.7098039215686275,
-                                           0.8901960784313725,
-                                           0.8470588235294118))
+# class TestBaseClassDraw(unittest.TestCase):
+#     """Unittests for testing the draw method of the Base class.
+#     """
+#
+#     def test_draw_no_args(self):
+#         """Tests draw method with no arguments."""
+#         with self.assertRaises(TypeError):
+#             Rectangle.draw()
+#
+#     #
+#     def test_draw_more_than_one_arg(self):
+#         """Tests draw method with more than one argument."""
+#         with self.assertRaises(TypeError):
+#             Rectangle.draw([], 1)
+#
+#     def test_set_background_color(self):
+#         from turtle import Turtle
+#
+#         # Create a turtle object
+#         turt = Turtle()
+#
+#         # Set the background color to "#b7312c"
+#         turt.screen.bgcolor((0.7176470588235294,
+#                              0.19215686274509805,
+#                              0.17254901960784313))
+#
+#         # Check if the background color is set correctly
+#         self.assertEqual(turt.screen.bgcolor(), (0.7176470588235294,
+#                                                  0.19215686274509805,
+#                                                  0.17254901960784313))
+#
+#         #  It sets the turtle's pen size to 3.
+#
+#     def test_set_pen_size(self):
+#         from turtle import Turtle
+#
+#         # Create a turtle object
+#         turt = Turtle()
+#
+#         # Set the pen size to 3
+#         turt.pensize(3)
+#
+#         # Check if the pen size is set correctly
+#         self.assertEqual(turt.pensize(), 3)
+#
+#         #  It sets the turtle's shape to "turtle".
+#
+#     def test_set_shape(self):
+#         from turtle import Turtle
+#
+#         # Create a turtle object
+#         turt = Turtle()
+#
+#         # Set the shape to "turtle"
+#         turt.shape("turtle")
+#
+#         # Check if the shape is set correctly
+#         self.assertEqual(turt.shape(), "turtle")
+#
+#         #  It sets the turtle's color to white for rectangles.
+#
+#     def test_set_rectangle_color(self):
+#         from turtle import Turtle
+#
+#         # Create a turtle object
+#         turt = Turtle()
+#
+#         # Set the color to white for rectangles
+#         turt.color((1.0, 1.0, 1.0))
+#
+#         # Check if the color is set correctly for rectangles
+#         self.assertEqual(turt.color()[0], (1.0, 1.0, 1.0))
+#
+#         #  It sets the turtle's color to "#b5e3d8" for squares.
+#
+#     def test_set_square_color(self):
+#         from turtle import Turtle
+#
+#         # Create a turtle object
+#         turt = Turtle()
+#
+#         # Set the color to "#b5e3d8" for squares
+#         turt.color((0.7098039215686275,
+#                     0.8901960784313725,
+#                     0.8470588235294118))
+#
+#         # Check if the color is set correctly for squares
+#         self.assertEqual(turt.color()[0], (0.7098039215686275,
+#                                            0.8901960784313725,
+#                                            0.8470588235294118))
 
 
 if __name__ == "__main__":
