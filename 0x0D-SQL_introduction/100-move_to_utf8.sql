@@ -1,0 +1,16 @@
+-- a script that converts hbtn_0c_0 database to UTF8 (utf8mb4, collate utf8mb4_unicode_ci) in your MySQL server.
+
+-- You need to convert all of the following to UTF8:
+
+-- Database hbtn_0c_0
+-- Table first_table
+-- Field name in first_table
+
+-- Convert the Database Character Set and Collation:
+ALTER DATABASE hbtn_0c_0 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Convert the Table Character Set and Collation:
+ALTER TABLE first_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Convert the Specific Field Character Set and Collation:
+ALTER TABLE first_table MODIFY name VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
