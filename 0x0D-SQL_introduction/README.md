@@ -1,0 +1,1 @@
+# This is a 0x0D-SQL_introduction project for SQL at Holberton School
