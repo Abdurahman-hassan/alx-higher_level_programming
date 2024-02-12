@@ -1,0 +1,1 @@
+# This is the first JS code for project 0x12-javascript-warm_up
