@@ -2,7 +2,7 @@
 
 const argLen = process.argv.length;
 
-if (argLen === 2) {
+if (argLen === 2 || isNaN(process.argv[2])) {
     console.log('Missing number of occurrences');
 }
 
