@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const arrLang = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-for (const lang of arrLang) {
-    console.log(lang);
+for (let i = 0; i < arrLang.length; i++) {
+    console.log(arrLang[i]);
 }
