@@ -1,7 +1,7 @@
 #!/bin/bash
 # the expand_aliases shell option is set using shopt -s expand_aliases.
 shopt -s expand_aliases
-alias cm='chmod +x'
+alias cm='chmod u+x'
 alias add='git add'
 arg=$1
 touch $arg
