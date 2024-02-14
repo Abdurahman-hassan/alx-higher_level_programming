@@ -17,7 +17,7 @@ fs.readFile(fileAPath, 'utf8', (err, dataA) => {
     if (err) throw err;
 
     // Concatenate the content of both files
-    const concatenatedData = dataA + '\n' + dataB;
+    const concatenatedData = dataA + dataB;
 
     // Write the concatenated content to the destination file
     fs.writeFile(fileCPath, concatenatedData, (err) => {
