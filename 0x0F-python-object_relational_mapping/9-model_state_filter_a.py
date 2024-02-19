@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     # Fetch all states whose names contain the letter 'a' from the database
     for state in (session.query(State).filter(State.name.contains('a'))
-            .order_by(State.id).all()):
+                  .order_by(State.id).all()):
         print("{}: {}".format(state.id, state.name))
 
     session.close()
