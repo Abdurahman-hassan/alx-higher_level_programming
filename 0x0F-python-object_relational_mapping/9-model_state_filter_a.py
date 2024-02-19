@@ -3,8 +3,6 @@
 """
 This script connects to a MySQL database and prints information about states
 whose names contain the letter 'a' from the 'states' table using SQLAlchemy.
-
-Usage: ./script_name.py mysql_username mysql_password database_name
 """
 
 import sys
