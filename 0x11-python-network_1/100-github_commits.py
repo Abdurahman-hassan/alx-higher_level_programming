@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 """Fetches the 10 most recent commits from the repository specified"""
 import requests
 import sys
