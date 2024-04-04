@@ -1,4 +1,3 @@
-#!/usr/bin/node
 $(document).ready(function () {
     // Updated URL to reflect the new domain
     const url = 'https://hellosalut.stefanbohacek.dev/?';

@@ -1,4 +1,3 @@
-#!/usr/bin/node
 $('document').ready(function () {
     function getTranslation () {
         const langCode = $('INPUT#language_code').val();
